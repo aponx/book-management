@@ -3,18 +3,17 @@ package cmd
 import (
 	"fmt"
 	"os"
-	"umu/golang-api/app/domain"
-	"umu/golang-api/common"
-	"umu/golang-api/driver"
-	phttp "umu/golang-api/http"
+
+	"github.com/aponx/book-management/app/domain"
+	"github.com/aponx/book-management/common"
+	"github.com/aponx/book-management/driver"
+	phttp "github.com/aponx/book-management/http"
 
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
-	"gopkg.in/gorp.v2"
 
-	_userDelivery "umu/golang-api/app/user/delivery/http"
-	_userRepository "umu/golang-api/app/user/repository"
-	_userUsecase "umu/golang-api/app/user/usecase"
+	_bookDelivery "github.com/aponx/book-management/app/book/delivery"
+	_bookUsecase "github.com/aponx/book-management/app/book/usecase"
 )
 
 func Execute() {
@@ -43,18 +42,16 @@ func startHttpServer() {
 		panic(err)
 	}
 
-	dbInstance, err := driver.NewPostgreDatabase(conf.DB)
+	datajson, err := driver.NewLoadJson(conf.JSON.Data)
 
 	if err != nil {
 		log.Error().Err(err).Msg("DB Connection error")
 		panic(err)
 	}
 
-	initDb(dbInstance)
+	repos := wiringRepository(*datajson)
 
-	repos := wiringRepository(dbInstance)
-
-	usecase := wiringUsecase(*repos)
+	usecase := wiringUsecase(*&repos)
 
 	handler := wiringHttpHandler(conf, *usecase)
 
@@ -66,29 +63,25 @@ func startHttpServer() {
 
 }
 
-func initDb(db *gorp.DbMap) {
-	db.AddTableWithName(domain.User{}, "users").SetKeys(true, "Id")
-}
-
-func wiringRepository(db *gorp.DbMap) *domain.Repository {
-	userRepo := _userRepository.NewUserRepository(db)
+func wiringRepository(data []domain.Book) *domain.Repository {
+	userRepo := _bookRepository.NewBookRepository(data)
 	return &domain.Repository{
 		UserRepo: userRepo,
 	}
 }
 
-func wiringUsecase(repos domain.Repository) *domain.Usecase {
-	userUsecase := _userUsecase.NewUserUsecase(repos.UserRepo)
+func wiringUsecase() *domain.Usecase {
+	bookUsecase := _bookUsecase.NewBookUsecase()
 	return &domain.Usecase{
-		UserUsecase: userUsecase,
+		BookUsecase: bookUsecase,
 	}
 }
 
 func wiringHttpHandler(conf *common.Config, usecase domain.Usecase) *domain.Delivery {
-	userHandler := _userDelivery.NewUserHandler(conf, usecase.UserUsecase)
+	bookHandler := _bookDelivery.NewBookHandler(conf, usecase.BookUsecase)
 
 	return &domain.Delivery{
-		UserDelivery: userHandler,
+		BookDelivery: bookHandler,
 	}
 
 }

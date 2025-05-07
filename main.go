@@ -1,7 +1,7 @@
 package main
 
 import (
-	"umu/golang-api/cmd"
+	"github.com/aponx/book-management/cmd"
 )
 
 // @title GOLANG API

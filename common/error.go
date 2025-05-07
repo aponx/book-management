@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net/http"
 
-	phttp "umu/golang-api/common/http"
+	phttp "github.com/aponx/book-management/common/http"
 )
 
 var ErrInvalidRequest = errors.New("invalid request")

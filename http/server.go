@@ -6,7 +6,8 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
-	"umu/golang-api/common"
+
+	"github.com/aponx/book-management/common"
 
 	"github.com/rs/zerolog/log"
 )

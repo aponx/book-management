@@ -19,18 +19,14 @@ type Log struct {
 	Pretty bool
 }
 
-type DB struct {
-	Host     string
-	Port     string
-	Name     string
-	Username string
-	Password string
+type JSON struct {
+	Data string
 }
 
 type Config struct {
 	Server Server
 	Log    Log
-	DB     DB
+	JSON   JSON
 }
 
 var GlobalConfig *Config

@@ -2,10 +2,11 @@ package http
 
 import (
 	"net/http"
-	"umu/golang-api/app/domain"
 
-	"github.com/go-chi/chi"
-	"github.com/go-chi/chi/middleware"
+	"github.com/aponx/book-management/app/domain"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
 )
 

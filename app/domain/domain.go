@@ -3,13 +3,13 @@ package domain
 import "net/http"
 
 type Repository struct {
-	UserRepo UserRepository
+	BookRepo BookRepository
 }
 
 type Usecase struct {
-	UserUsecase UserUsecase
+	BookUsecase BookUsecase
 }
 
 type Delivery struct {
-	UserDelivery http.Handler
+	BookDelivery http.Handler
 }
