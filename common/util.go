@@ -4,18 +4,15 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"encoding/json"
-	"log"
 	"reflect"
 	"time"
-
-	"golang.org/x/crypto/bcrypt"
 )
 
-//NullString is a wrapper around sql.NullString
+// NullString is a wrapper around sql.NullString
 type NullString sql.NullString
 
-//MarshalJSON method is called by json.Marshal,
-//whenever it is of type NullString
+// MarshalJSON method is called by json.Marshal,
+// whenever it is of type NullString
 func (x *NullString) MarshalJSON() ([]byte, error) {
 	if !x.Valid {
 		return []byte("null"), nil
@@ -83,17 +80,4 @@ func (x *NullTime) Scan(v interface{}) error {
 		*x = NullTime{i.Time, true}
 	}
 	return nil
-}
-
-func HashAndSalt(pwd []byte) string {
-	hash, err := bcrypt.GenerateFromPassword(pwd, bcrypt.MinCost)
-	if err != nil {
-		log.Println(err)
-	}
-	return string(hash)
-}
-
-func ComparePassword(pwd []byte, hash []byte) error {
-	err := bcrypt.CompareHashAndPassword(hash, pwd)
-	return err
 }

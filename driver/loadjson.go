@@ -7,7 +7,7 @@ import (
 	"github.com/aponx/book-management/app/domain"
 )
 
-// NewPostgreDatabase return gorp dbmap object with postgre options param
+// NewLoadJson return array object of book
 func NewLoadJson(file string) (*[]domain.Book, error) {
 	// Read the JSON file
 	content, err := os.ReadFile(file)
@@ -23,4 +23,20 @@ func NewLoadJson(file string) (*[]domain.Book, error) {
 	}
 
 	return &data, err
+}
+
+func UpdateJsonFil(books []domain.Book, file string) error {
+	// Marshal the updated data back to JSON
+	updatedData, err := json.MarshalIndent(books, "", "  ")
+	if err != nil {
+		return err
+	}
+
+	// Write the updated JSON data to the file
+	err = os.WriteFile(file, updatedData, 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

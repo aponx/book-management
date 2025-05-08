@@ -25,7 +25,7 @@ func Router(delivery domain.Delivery) http.Handler {
 		MaxAge:           300,
 	}))
 
-	r.Mount("/user", delivery.UserDelivery)
+	r.Mount("/books", delivery.BookDelivery)
 
 	return r
 }

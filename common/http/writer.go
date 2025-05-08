@@ -44,7 +44,7 @@ type CustomWriter struct {
 	C HttpHandlerContext
 }
 
-func (c *CustomWriter) Write(w http.ResponseWriter, data interface{}, statusCode int, pagination *Pagination) {
+func (c *CustomWriter) Write(w http.ResponseWriter, data interface{}, statusCode int, msg string) {
 	var successResp SuccessResponse
 	voData := reflect.ValueOf(data)
 	arrayData := []interface{}{}
@@ -62,12 +62,12 @@ func (c *CustomWriter) Write(w http.ResponseWriter, data interface{}, statusCode
 		}
 	}
 
-	if pagination != nil {
-		successResp.Pagination = *pagination
-	}
-
 	if statusCode == 0 {
 		statusCode = http.StatusOK
+	}
+
+	if msg != "" {
+		successResp.ResponseDesc = msg
 	}
 
 	writeSuccessResponse(w, successResp, statusCode)

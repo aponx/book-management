@@ -10,7 +10,7 @@ import (
 var ErrInvalidRequest = errors.New("invalid request")
 var ErrUnprocessableEntity = errors.New("unprocessable data")
 var ErrNotFoundData = errors.New("data not found")
-var ErrUserAlreadyExist = errors.New("user already exist")
+var ErrBookAlreadyExist = errors.New("book already exist")
 var ErrUserNotFound = errors.New("user not found")
 var ErrPasswordNotMatch = errors.New("password doesn't match")
 
@@ -18,7 +18,7 @@ func InjectErrors(handlerCtx *phttp.HttpHandlerContext) {
 	handlerCtx.AddError(ErrNotFoundData, setErrResp(ErrNotFoundData.Error(), http.StatusNotFound))
 	handlerCtx.AddError(ErrUnprocessableEntity, setErrResp(ErrUnprocessableEntity.Error(), http.StatusUnprocessableEntity))
 	handlerCtx.AddError(ErrInvalidRequest, setErrResp(ErrInvalidRequest.Error(), http.StatusBadRequest))
-	handlerCtx.AddError(ErrUserAlreadyExist, setErrResp(ErrUserAlreadyExist.Error(), http.StatusConflict))
+	handlerCtx.AddError(ErrBookAlreadyExist, setErrResp(ErrBookAlreadyExist.Error(), http.StatusBadRequest))
 	handlerCtx.AddError(ErrUserNotFound, setErrResp(ErrUserNotFound.Error(), http.StatusNotFound))
 	handlerCtx.AddError(ErrPasswordNotMatch, setErrResp(ErrPasswordNotMatch.Error(), http.StatusConflict))
 

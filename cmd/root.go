@@ -8,11 +8,12 @@ import (
 	"github.com/aponx/book-management/common"
 	"github.com/aponx/book-management/driver"
 	phttp "github.com/aponx/book-management/http"
-
-	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
 
+	"github.com/rs/zerolog/log"
+
 	_bookDelivery "github.com/aponx/book-management/app/book/delivery"
+	_bookRepository "github.com/aponx/book-management/app/book/repository"
 	_bookUsecase "github.com/aponx/book-management/app/book/usecase"
 )
 
@@ -42,16 +43,16 @@ func startHttpServer() {
 		panic(err)
 	}
 
-	datajson, err := driver.NewLoadJson(conf.JSON.Data)
+	datajson, err := driver.NewLoadJson("./data/" + conf.JSON.Data)
 
 	if err != nil {
 		log.Error().Err(err).Msg("DB Connection error")
 		panic(err)
 	}
 
-	repos := wiringRepository(*datajson)
+	repos := wiringRepository(datajson)
 
-	usecase := wiringUsecase(*&repos)
+	usecase := wiringUsecase(*repos)
 
 	handler := wiringHttpHandler(conf, *usecase)
 
@@ -63,15 +64,15 @@ func startHttpServer() {
 
 }
 
-func wiringRepository(data []domain.Book) *domain.Repository {
-	userRepo := _bookRepository.NewBookRepository(data)
+func wiringRepository(data *[]domain.Book) *domain.Repository {
+	bookRepo := _bookRepository.NewBookRepository(data)
 	return &domain.Repository{
-		UserRepo: userRepo,
+		BookRepo: bookRepo,
 	}
 }
 
-func wiringUsecase() *domain.Usecase {
-	bookUsecase := _bookUsecase.NewBookUsecase()
+func wiringUsecase(repos domain.Repository) *domain.Usecase {
+	bookUsecase := _bookUsecase.NewBookUsecase(repos.BookRepo)
 	return &domain.Usecase{
 		BookUsecase: bookUsecase,
 	}

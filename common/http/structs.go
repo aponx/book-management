@@ -28,8 +28,8 @@ type RequestPagination struct {
 type HttpHandleResult struct {
 	Data            interface{}
 	StatusCode      int
-	Pagination      *Pagination
 	Error           error
+	Msg             string
 	IsPlainResponse bool
 }
 
@@ -39,7 +39,6 @@ type Response struct {
 
 type SuccessResponse struct {
 	Response
-	Pagination
 	Data interface{} `json:"data,omitempty" mapstructure:"data,omitempty"`
 }
 

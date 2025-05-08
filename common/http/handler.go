@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"io/ioutil"
 	"net/http"
+	"time"
 
 	"github.com/rs/zerolog/log"
 )
@@ -30,6 +31,7 @@ func NewHttpHandler(c HttpHandlerContext, opts ...HandlerOption) func(handler fu
 }
 
 func (h HttpHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	log.Logger.Info().Msgf("Method: %v, Path: %v, RequestTime: %v", r.Method, r.URL.Path, time.Now())
 	result := h.H(w, r)
 
 	if h.IsDebug {
@@ -53,6 +55,6 @@ func (h HttpHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if result.IsPlainResponse {
 		h.WritePlain(w, result.Data, result.StatusCode)
 	} else {
-		h.Write(w, result.Data, result.StatusCode, result.Pagination)
+		h.Write(w, result.Data, result.StatusCode, result.Msg)
 	}
 }

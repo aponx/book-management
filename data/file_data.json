@@ -1,0 +1,191 @@
+[
+  {
+    "bookID": "BKO004",
+    "title": "Mikrotik Kung Fu : Kitab 1",
+    "author": "Rendra Towidjojo",
+    "publisher": "Jasakom",
+    "year": "2016",
+    "qty": 2,
+    "out": 2
+  },
+  {
+    "bookID": "BKO005",
+    "title": "Windows 10 : Panduan Lengkap",
+    "author": "Indra Susanto",
+    "publisher": "Jasakom",
+    "year": "2013",
+    "qty": 4,
+    "out": 1
+  },
+  {
+    "bookID": "BKO006",
+    "title": "Bisnis Online Revolution",
+    "author": "Iwan Kenrianto",
+    "publisher": "Gramedia",
+    "year": "2015",
+    "qty": 2,
+    "out": 1
+  },
+  {
+    "bookID": "BKO007",
+    "title": "3 Tools Facebook Graph Gratisan",
+    "author": "Suryadin Laoddang",
+    "publisher": "Dosen Jualan",
+    "year": "2015",
+    "qty": 1,
+    "out": 2
+  },
+  {
+    "bookID": "BKO008",
+    "title": "Mengolah Database Excel",
+    "author": "Sumonggo Surya",
+    "publisher": "Andi Publisher",
+    "year": "2001",
+    "qty": 0,
+    "out": 2
+  },
+  {
+    "bookID": "BKO009",
+    "title": "Mahir Corel Draw Dalam 4 Hari",
+    "author": "Yuli Kristanto S",
+    "publisher": "Izuka Komp",
+    "year": "2008",
+    "qty": 1,
+    "out": 2
+  },
+  {
+    "bookID": "BKO010",
+    "title": "The Magic of Photoshop",
+    "author": "Hendri Hendratama",
+    "publisher": "Informatika",
+    "year": "2013",
+    "qty": 4,
+    "out": 2
+  },
+  {
+    "bookID": "BKO011",
+    "title": "Teknik Profesional Photoshop CS3",
+    "author": "Rahmat Widiyanto",
+    "publisher": "Elex Media Computindo",
+    "year": "2009",
+    "qty": 3,
+    "out": 3
+  },
+  {
+    "bookID": "BKO012",
+    "title": "Jago SEO",
+    "author": "Hidayat Rahmad",
+    "publisher": "Elex Media Computindo",
+    "year": "2011",
+    "qty": 1,
+    "out": 2
+  },
+  {
+    "bookID": "BKO013",
+    "title": "Hacking Wireless Network",
+    "author": "Suryatama Udin",
+    "publisher": "Jasakom",
+    "year": "2014",
+    "qty": 6,
+    "out": 3
+  },
+  {
+    "bookID": "BKO014",
+    "title": "Blender 3D Modelling",
+    "author": "Hendri Hendratama",
+    "publisher": "Informatika",
+    "year": "2015",
+    "qty": 0,
+    "out": 2
+  },
+  {
+    "bookID": "BKO015",
+    "title": "Aplikasi Berbasis Android",
+    "author": "Hyua Hendra La",
+    "publisher": "Moklet Publisher",
+    "year": "2019",
+    "qty": 3,
+    "out": 1
+  },
+  {
+    "bookID": "BKO016",
+    "title": "Membangun Aplikasi ASP",
+    "author": "Hendro SPd",
+    "publisher": "Moklet Publisher",
+    "year": "2020",
+    "qty": 2,
+    "out": 2
+  },
+  {
+    "bookID": "BKO017",
+    "title": "Basis Data Kebun Binatang",
+    "author": "Ifa Khoirunnisa",
+    "publisher": "Moklet Publisher",
+    "year": "2018",
+    "qty": 3,
+    "out": 0
+  },
+  {
+    "bookID": "BKO018",
+    "title": "Buku Panduan ASUS",
+    "author": "Herman Dzumavo",
+    "publisher": "Samsara",
+    "year": "2008",
+    "qty": 3,
+    "out": 0
+  },
+  {
+    "bookID": "BKO019",
+    "title": "The Power of Microsoft Edge",
+    "author": "Steven Reward",
+    "publisher": "Duston Magz",
+    "year": "2017",
+    "qty": 5,
+    "out": 1
+  },
+  {
+    "bookID": "BKO020",
+    "title": "MySQL Dasar dan Implementasi",
+    "author": "Supratman Efendi",
+    "publisher": "Ilmukom",
+    "year": "2014",
+    "qty": 3,
+    "out": 2
+  },
+  {
+    "bookID": "BKO021",
+    "title": "Nippon Against World",
+    "author": "Hasirama Tadashi",
+    "publisher": "Sung Yang",
+    "year": "2009",
+    "qty": 0,
+    "out": 2
+  },
+  {
+    "bookID": "BKO022",
+    "title": "Konfigursi Router Cisco",
+    "author": "Solikin",
+    "publisher": "Safari pub",
+    "year": "2019",
+    "qty": 2,
+    "out": 1
+  },
+  {
+    "bookID": "BKO023",
+    "title": "Fashion Paris",
+    "author": "Amire Melaine",
+    "publisher": "FranceTime",
+    "year": "2018",
+    "qty": 2,
+    "out": 0
+  },
+  {
+    "bookID": "BKO024",
+    "title": "Unreleashed Journal",
+    "author": "Timothy Law",
+    "publisher": "Askars",
+    "year": "2017",
+    "qty": 4,
+    "out": 1
+  }
+]
